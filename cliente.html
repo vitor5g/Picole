@@ -1,0 +1,92 @@
+
+<script src="js/cliente.js"></script>
+
+
+
+<div class="modal fade in" id="modal" tabindex="-1" role="dialog">
+    <form role="form" id="modalFormCliente" method="POST" name="modalFormCliente">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cliente</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="nome" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;'>Nome<span style="color: red">*</span></label>
+                            <input id="nome" name="nome" type="text" class="form-control"></input>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="sobrenome" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;;'>Sobrenome</label>
+                            <input id="sobrenome" name="sobrenome" type="text" class="form-control"></input>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="apelido" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;;'>Apelido</label>
+                            <input id="apelido" name="apelido" type="text" class="form-control"></input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col-sm-6">
+                            <label for="setor" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;'>Setor</label>
+                            <input id="setor" name="setor" type="text" class="form-control"></input>
+
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                    <p style="font-family: Roboto, Helvetica, sans-serif;color:black;font-weight: bold; font-size: 14px; margin-right: 28%; white-space: nowrap; ">Preenchimento Obrigatório(<span style="color: red">*</span>)</p>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="salvar_aluno" name="salvar_aluno">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div id="alerta_erro" role="alert" class="alert alert-danger alerta hide">
+            Erro
+        </div>
+        <div id="alerta_wait" role="alert" class="alert alert-warning alerta hide">
+            Aguarde...
+        </div>
+        <div id="alerta_sucesso" role="alert" class="alert alert-success alerta hide">
+            Sucesso
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<div class="row" style="margin-bottom: 50px;">
+    <div class="col-sm-2">
+        <button onclick="add()" style="border-radius: 15px;" type="button" class="btn btn-primary">Add Cliente</button>
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+</div>
+
+
+<table id="my_table" class="display table-hover table-responsive" cellspacing="0" width="100%">
+    <thead role="row" style="background-color: rgb(252, 252, 252);">
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Apelido</th>
+            <th>Setor</th>
+            <th width="5%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+</table>

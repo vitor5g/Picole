@@ -1,0 +1,92 @@
+
+<script src="js/picole.js"></script>
+
+
+
+
+
+
+<div class="modal fade in" id="modal" tabindex="-1" role="dialog">
+    <form role="form" id="modalFormPicole" method="POST" name="modalFormPicole">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Picole</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label for="sabor" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;'>Sabor<span style="color: red;">*</span></label>
+                            <input id="sabor" name="sabor" type="text" class="form-control" required=""></input>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <label for="preco" style='font: 14px, Roboto, Helvetica, sans-serif;color: black;'>Preço<span style="color: red;">*</span></label>
+                            <input id="preco" name="preco" type="text" class="form-control" required=""></input>
+
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label for="quantidade">Quantidade<span style="color: red;">*</span></label>
+                            <input id="quantidade" name="quantidade" type="number" class="form-control" min="1" value="1"></input>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                    <p style="font-family: Roboto, Helvetica, sans-serif;color:black;font-weight: bold; font-size: 14px; margin-right: 28%; white-space: nowrap; ">Preenchimento Obrigatório(<span style="color: red">*</span>)</p>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" name="salvar_picole" id="salvar_picole">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div id="alerta_erro" role="alert" class="alert alert-danger alerta hide">
+            Erro
+        </div>
+        <div id="alerta_wait" role="alert" class="alert alert-warning alerta hide">
+            Aguarde...
+        </div>
+        <div id="alerta_sucesso" role="alert" class="alert alert-success alerta hide">
+            Sucesso
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="row" style="margin-bottom: 50px;">
+    <div class="col-sm-2">
+        <button onclick="add()" style="border-radius: 15px;" type="button" class="btn btn-primary">Add Picole</button>
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+</div>
+
+<table id="my_table" class="display table-hover table-responsive" cellspacing="0" width="100%">
+    <thead role="row" style="background-color: rgb(252, 252, 252);">
+        <tr>
+            <th>id</th>
+            <th>Sabor</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th width="5%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+</table>

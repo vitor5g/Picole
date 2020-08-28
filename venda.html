@@ -1,0 +1,195 @@
+<script src="js/venda.js"></script>
+
+
+
+
+
+
+<div class="modal fade in" id="modal" tabindex="-1" role="dialog">
+    <form role="form" id="modalFormVenda" method="POST" name="modalFormVenda">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Venda</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="nome_cliente" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Nome do Cliente<span style="color: red;">*</span></label>
+                            <select id="nome_cliente" name="nome_cliente" required class="custom-select" style="font: 14px, Roboto, Helvetica, sans-serif;color: black;">
+                                <option selected value="Selecione" selected="">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="sabor_picole" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Sabor do Picolé<span style="color: red;">*</span></label>
+                            <select id="sabor_picole" name="sabor_picole" required class="form-control" onchange="mostraPreco()">
+                                <option selected value="Selecione" selected="">Selecione</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                                <label for="preco" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Preço (R$)</label>
+                                <input id="preco" name="preco" type="text" class="form-control" disabled></input>
+                                <br>
+    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label for="quantidade" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Quantidade<span style="color: red;">*</span></label>
+                            <input id="quantidade" name="quantidade" type="number" class="form-control" min="1" required onfocusout="calculaTotal(this)" value="1"/>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="total" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Total (R$)</label>
+                            <input id="total" name="total" type="text" class="form-control" disabled></input>
+
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="data_venda" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Data da Venda</label>
+                            <input id="data_venda" name="data_venda" type="date" class="form-control" disabled />
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                        <p style="font-family: Roboto, Helvetica, sans-serif;color:black;font-weight: bold; font-size: 14px; margin-right: 28%; white-space: nowrap; ">Preenchimento Obrigatório(<span style="color: red">*</span>)</p>
+                        
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="salvar_venda" name="salvar_venda">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade in" id="modalPagamento" tabindex="-1" role="dialog">
+    <form role="form" id="modalFormPagamento" method="POST" name="modalFormPagamento">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pagamento</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <label for="nome_cliente_pagamento" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Nome do Cliente<span style="color: red;">*</span></label>
+                            <select id="nome_cliente_pagamento" name="nome_cliente_pagamento" required class="custom-select" style="font: 14px, Roboto, Helvetica, sans-serif;color: black;">
+                                <option selected value="Selecione" selected="">Selecione</option>
+                            </select>
+                            <br>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="sabor_picole_pagamento" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Sabor do Picolé<span style="color: red;">*</span></label>
+                            <select id="sabor_picole_pagamento" name="sabor_picole_pagamento" required class="form-control" onchange="mostraPreco()">
+                                <option selected value="Selecione" selected="">Selecione</option>
+                            </select>
+                            <br>
+                        </div>
+                        <div class="col-sm-3">
+                                <label for="total_pagamento" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Total (R$)</label>
+                                <input id="total_pagamento" name="total_pagamento" type="text" class="form-control" disabled></input>
+    
+                            </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" style="margin-left: 15%;">
+                                <label for="pagamento" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Pagamento (R$)<span style="color: red;">*</span></label>
+                                <input id="pagamento" name="pagamento" type="text" class="form-control"></input>
+                                <br>
+                        </div>
+                        <div class="col-sm-5" style="margin-left: 1%;">
+                                <label for="data_pagamento" style='font-family: Roboto, Helvetica, sans-serif;color: black; font-size: 14px;'>Data do Pagamento</label>
+                                <input id="data_pagamento" name="data_pagamento" type="date" class="form-control" disabled />
+    
+                        </div>
+                       
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                        <p style="font-family: Roboto, Helvetica, sans-serif;color:black;font-weight: bold; font-size: 14px; margin-right: 28%; white-space: nowrap; ">Preenchimento Obrigatório(<span style="color: red">*</span>)</p>
+                        
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="salvar_pagamento" name="salvar_pagamento">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade in" id="modalDetalhe" tabindex="-1" role="dialog">
+    <form role="form" id="modalFormDetalhe" method="POST" name="modalFormDetalhe">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="align-items: center; text-align: center; margin: 0 auto;">Historico de Pagamentos - <span id="nome_cliente_detalhe" class="label label-primary" style="border-radius: 15px;"></span></h4><br>
+                </div>
+                <div class="modal-body-detalhe">
+                  
+                  
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="removerDiv();">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div id="alerta_erro" role="alert" class="alert alert-danger alerta hide">
+            Erro
+        </div>
+        <div id="alerta_wait" role="alert" class="alert alert-warning alerta hide">
+            Aguarde...
+        </div>
+        <div id="alerta_sucesso" role="alert" class="alert alert-success alerta hide">
+            Sucesso
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="row" style="margin-bottom: 50px;">
+    <div class="col-sm-2">
+        <button onclick="add()" style="border-radius: 15px;" type="button" class="btn btn-primary">Add Venda</button>
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+    <div class="col-sm-5">
+
+    </div>
+</div>
+
+<table id="my_table" class="display table-hover table-responsive" cellspacing="0" width="100%">
+    <thead role="row" style="background-color: rgb(252, 252, 252);">
+        <tr>
+            <th>id</th>
+            <th>id_cliente</th>
+            <th>id_picole</th>
+            <th></th>
+            <th>Nome</th>
+            <th>Apelido</th>
+            <th>Setor</th>
+            <th>Sabor</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th>Data da Venda</th>
+            <th width="5%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+</table>
